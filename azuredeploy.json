@@ -187,7 +187,7 @@
         "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(variables('NewRGName'), '-Vnet'), 'subnet1')]"
       ],
       "properties": {
-        "kubernetesVersion": "1.15.7",
+        "kubernetesVersion": "1.16.10",
         "dnsPrefix": "[concat(variables('NewRGName'), '-AKSClusterdns')]",
         "agentPoolProfiles": [
           {
@@ -201,7 +201,7 @@
             "maxCount": 38,
             "minCount": 3,
             "enableAutoScaling": true,
-            "orchestratorVersion": "1.15.7",
+            "orchestratorVersion": "1.16.10",
             "osType": "Linux"
           }
         ],
@@ -267,7 +267,7 @@
         "maxCount": 38,
         "minCount": 3,
         "enableAutoScaling": true,
-        "orchestratorVersion": "1.15.7",
+        "orchestratorVersion": "1.16.10",
         "osType": "Linux"
       }
     }
