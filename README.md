@@ -1,7 +1,7 @@
-# Azure Kubernetes and dependencies Deployment Template
+# ARM Template - Enterprise Edge Node
 
-<a href="https://azuredeploy.net/" target="_blank">
-    <img src="https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FrohitbuddharajuTanla%2FTanla-EdgeNode-Deployment-Enterprise%2Fmaster%2Fdeployment.json" target="_blank">
+    <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
 
 
@@ -14,6 +14,8 @@ This sample template creates following Azure components and its dependencies.
 
 Create a resource group with below command
 
-PS> New-AzureRmResourceGroup -Name perf-Tan-SI-RG-AKS-01 -Location "South Central US"
+PS> New-AzureRmResourceGroup -Name <Resource-Group-Name> -Location <Azure-Region>
+    
+E.g. New-AzureRmResourceGroup -Name Prod-Entrp-SI-RG-AKS-XYZ-01 -Location "South India"
 
 The purpose of this template is to deploy AKS cluster with all of dependent resources.
