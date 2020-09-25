@@ -4,7 +4,7 @@
   "parameters": {
     "VnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "128.1.0.0/16"
+      "defaultValue": "192.168.0.0/21"
     },
     "servicePrincipalClientId": {
       "type": "securestring",
@@ -186,7 +186,7 @@
         "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(variables('NewRGName'), '-Vnet'), 'subnet1')]"
       ],
       "properties": {
-        "kubernetesVersion": "1.16.10",
+        "kubernetesVersion": "1.17.11",
         "dnsPrefix": "[concat(variables('NewRGName'), '-AKSClusterdns')]",
         "agentPoolProfiles": [
           {
@@ -200,7 +200,7 @@
             "maxCount": 38,
             "minCount": 3,
             "enableAutoScaling": true,
-            "orchestratorVersion": "1.16.10",
+            "orchestratorVersion": "1.17.11",
             "osType": "Linux"
           }
         ],
@@ -266,7 +266,7 @@
         "maxCount": 38,
         "minCount": 3,
         "enableAutoScaling": true,
-        "orchestratorVersion": "1.16.10",
+        "orchestratorVersion": "1.17.11",
         "osType": "Linux"
       }
     }
