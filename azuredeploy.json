@@ -35,8 +35,8 @@
       },
       "properties": {
         "zoneRedundant": false,
-        "isAutoInflateEnabled": false,
-        "maximumThroughputUnits": 0,
+        "isAutoInflateEnabled": true,
+        "maximumThroughputUnits": 20,
         "kafkaEnabled": true
       }
     },
