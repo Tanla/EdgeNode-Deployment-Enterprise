@@ -163,7 +163,7 @@
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[replace(variables('NewRGName'),'Entrp', 'Entrp-LAWKS')]",
       "apiVersion": "2017-03-15-preview",
-      "location": "southeastasia",
+      "location": "centralindia",
       "properties": {
         "sku": {
           "name": "pergb2018"
