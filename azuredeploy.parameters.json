@@ -1,18 +1,18 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    //"CUAID": {
-    // "value": "8fad6b47-2bc8-5140-8022-148d25942560"
-    //},
-    "vnetAddressPrefix": {
-      "value": "192.167.16.0/22"
-    },
-    "servicePrincipalClientId": {
-      "value": "84583ef3-c27f-4b2d-88bb-f8e79a356d"
-    },
-    "servicePrincipalClientSecret": {
-      "value": "ER.]U.HEu:9W2yiNoAF5Bx6SOAd6j"
-    }
-  }
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"vnetAddressPrefix": {
+			"value": "192.167.16.0/22"
+		},
+		"servicePrincipalClientId": {
+			"value": "84583ef3-c27f-4b2d-88bb-f8e79a356d"
+		},
+		"servicePrincipalClientSecret": {
+			"value": "ER.]U.HEu:9W2yiNoAF5Bx6SOAd6j"
+		},
+		"kubernetesVersion": {
+			"defaultValue": ""
+		}
+	}
 }
