@@ -30,7 +30,7 @@
 		{
 			"type": "Microsoft.EventHub/namespaces",
 			"apiVersion": "2018-01-01-preview",
-			"name": "[replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-EvtHub')]",
 			"location": "[resourceGroup().location]",
 			"sku": {
 				"name": "Standard",
@@ -85,10 +85,10 @@
 		{
 			"type": "Microsoft.EventHub/namespaces/AuthorizationRules",
 			"apiVersion": "2017-04-01",
-			"name": "[concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub'), '/RootManageSharedAccessKey')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-EvtHub', '/RootManageSharedAccessKey')]",
 			"location": "[resourceGroup().location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.EventHub/namespaces', concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub')))]"
+				"[resourceId('Microsoft.EventHub/namespaces', concat(variables('NewRGName'),'-Entrp-EvtHub'))]"
 			],
 			"properties": {
 				"rights": [
@@ -101,10 +101,10 @@
 		{
 			"type": "Microsoft.EventHub/namespaces/eventhubs",
 			"apiVersion": "2017-04-01",
-			"name": "[concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub'), '/aggregator-1')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-EvtHub', '/aggregator-1')]",
 			"location": "Central India",
 			"dependsOn": [
-				"[resourceId('Microsoft.EventHub/namespaces', concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub')))]"
+				"[resourceId('Microsoft.EventHub/namespaces', concat(variables('NewRGName'),'-Entrp-EvtHub'))]"
 			],
 			"properties": {
 				"messageRetentionInDays": 3,
@@ -115,10 +115,10 @@
 		{
 			"type": "Microsoft.EventHub/namespaces/networkRuleSets",
 			"apiVersion": "2018-01-01-preview",
-			"name": "[concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub'), '/default')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-EvtHub', '/default')]",
 			"location": "[resourceGroup().location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.EventHub/namespaces', concat(replace(variables('NewRGName'),'Entrp', 'Entrp-EvtHub')))]"
+				"[resourceId('Microsoft.EventHub/namespaces', concat(variables('NewRGName'),'-Entrp-EvtHub'))]"
 			],
 			"properties": {
 				"defaultAction": "Deny",
@@ -165,7 +165,7 @@
 		},
 		{
 			"type": "Microsoft.OperationalInsights/workspaces",
-			"name": "[replace(variables('NewRGName'),'Entrp', 'Entrp-LAWKS')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-LAWKS')]",
 			"apiVersion": "2020-10-01",
 			"location": "centralindia",
 			"properties": {
@@ -183,10 +183,10 @@
 		{
 			"type": "Microsoft.ContainerService/managedClusters",
 			"apiVersion": "2020-02-01",
-			"name": "[replace(variables('NewRGName'),'Entrp', 'Entrp-AKS')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-AKS')]",
 			"location": "[resourceGroup().location]",
 			"dependsOn": [
-				"[resourceId('Microsoft.OperationalInsights/workspaces', replace(variables('NewRGName'),'Entrp', 'Entrp-LAWKS'))]",
+				"[resourceId('Microsoft.OperationalInsights/workspaces', concat(variables('NewRGName'),'-Entrp-LAWKS'))]",
 				"[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(variables('NewRGName'), '-Vnet'), 'subnet1')]"
 			],
 			"properties": {
@@ -219,7 +219,7 @@
 					"omsagent": {
 						"enabled": true,
 						"config": {
-							"logAnalyticsWorkspaceResourceID": "[resourceId('Microsoft.OperationalInsights/workspaces', replace(variables('NewRGName'),'Entrp', 'Entrp-LAWKS'))]"
+							"logAnalyticsWorkspaceResourceID": "[resourceId('Microsoft.OperationalInsights/workspaces', concat(variables('NewRGName'),'-Entrp-LAWKS'))]"
 						}
 					}
 				},
@@ -253,9 +253,9 @@
 		{
 			"type": "Microsoft.ContainerService/managedClusters/agentPools",
 			"apiVersion": "2020-02-01",
-			"name": "[concat(replace(variables('NewRGName'),'Entrp', 'Entrp-AKS'), '/node1')]",
+			"name": "[concat(variables('NewRGName'),'-Entrp-AKS', '/node1')]",
 			"dependsOn": [
-				"[resourceId('Microsoft.ContainerService/managedClusters', replace(variables('NewRGName'),'Entrp', 'Entrp-AKS'))]",
+				"[resourceId('Microsoft.ContainerService/managedClusters', concat(variables('NewRGName'),'-Entrp-AKS'))]",
 				"[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(variables('NewRGName'), '-Vnet'), 'subnet1')]"
 			],
 			"properties": {
